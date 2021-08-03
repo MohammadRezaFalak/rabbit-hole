@@ -8,28 +8,27 @@ class UploadPath
             mkdir($path);
         }
     }
-    
+
     function makeUploadPath()
     {
-    
+
         $year = date("Y");
         $month = date("m");
         $day = date("d");
-    
-        $arg = "./$year";
-    
-        makeDirectory($arg);
-    
-        $arg .= "/$month";
-    
-        makeDirectory($arg);
-    
-        $arg .= "/$day";
-    
-        makeDirectory($arg);
-    
-        return $arg;
+        $base = "./storage";
+
+        $base .= "/$year";
+
+        $this->makeDirectory($base);
+
+        $base .= "/$month";
+
+        $this->makeDirectory($base);
+
+        $base .= "/$day";
+
+        $this->makeDirectory($base);
+
+        return $base;
     }
-    
-    echo makeUploadPath();
 }
