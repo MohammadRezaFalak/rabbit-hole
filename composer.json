@@ -1,0 +1,18 @@
+{
+    "name": "mohammadreza/rabbit-hole",
+    "description": "\u0016The Rabbit-hole Project is my first open source project that can provide some file handling features for PHP developers",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mohammadreza\\RabbitHole\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "MohammadReza",
+            "email": "m.reza6920@gmail.com"
+        }
+    ],
+    "require": {}
+}
