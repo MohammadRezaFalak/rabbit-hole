@@ -1,5 +1,7 @@
 <?php
 
+namespace RabbitHole;
+
 class UploadPath
 {
     function makeDirectory($path)
