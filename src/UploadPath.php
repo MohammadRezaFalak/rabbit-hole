@@ -4,14 +4,14 @@ namespace RabbitHole;
 
 class UploadPath
 {
-    function makeDirectory($path)
+    public function makeDirectory($path)
     {
         if (!file_exists($path)) {
             mkdir($path);
         }
     }
 
-    function makeUploadPath()
+    public function makeUploadPath()
     {
 
         $year = date("Y");
