@@ -17,7 +17,8 @@ class UploadPath
         $year = date("Y");
         $month = date("m");
         $day = date("d");
-        $base = "./storage";
+
+        $base = "./../storage";
 
         $base .= "/$year";
 
@@ -27,10 +28,13 @@ class UploadPath
 
         $this->makeDirectory($base);
 
-        $base .= "/$day";
+        $base .= "/$day/";
 
         $this->makeDirectory($base);
 
         return $base;
     }
 }
+
+// $uploadpath = new UploadPath();
+// $uploadpath->makeUploadPath();
