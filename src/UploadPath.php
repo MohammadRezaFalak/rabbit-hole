@@ -4,6 +4,19 @@ namespace RabbitHole;
 
 class UploadPath
 {
+
+    private $base;
+
+    public function setBase($base)
+    {
+        $this->base = $base;
+    }
+
+    public function getBase()
+    {
+        return $this->base;
+    }
+
     public function makeDirectory($path)
     {
         if (!file_exists($path)) {
@@ -18,7 +31,7 @@ class UploadPath
         $month = date("m");
         $day = date("d");
 
-        $base = "./storage";
+        $base = $this->getBase();
 
         $base .= "/$year";
 

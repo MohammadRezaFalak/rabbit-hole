@@ -15,7 +15,7 @@ class Upload
     public function __construct()
     {
         $uploadPath = new UploadPath();
-        
+        $uploadPath->setBase('./storage');
         $this->target_dir = $uploadPath->makeUploadPath();
         $this->target_file = $this->target_dir . basename($_FILES["fileToUpload"]["name"]);
         $this->imageFileType = strtolower(pathinfo($this->target_file, PATHINFO_EXTENSION));
