@@ -18,7 +18,7 @@ class UploadPath
         $month = date("m");
         $day = date("d");
 
-        $base = "./../storage";
+        $base = "./storage";
 
         $base .= "/$year";
 

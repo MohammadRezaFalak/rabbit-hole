@@ -1,8 +1,7 @@
 <?php
-
 namespace RabbitHole;
 
-// use RabbitHole\UploadPath;
+use RabbitHole\UploadPath;
 
 class Upload
 {
@@ -15,8 +14,9 @@ class Upload
 
     public function __construct()
     {
-        // $this->target_dir = new UploadPath();
-        // $this->target_dir->makeUploadPath();
+        $uploadPath = new UploadPath();
+        
+        $this->target_dir = $uploadPath->makeUploadPath();
         $this->target_file = $this->target_dir . basename($_FILES["fileToUpload"]["name"]);
         $this->imageFileType = strtolower(pathinfo($this->target_file, PATHINFO_EXTENSION));
         $this->temp =  explode(".", $_FILES["fileToUpload"]["name"]);
@@ -88,5 +88,3 @@ class Upload
     }
 }
 
-$upload = new Upload();
-$upload->checkImage();
