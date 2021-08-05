@@ -1,4 +1,5 @@
 <?php
+
 namespace RabbitHole;
 
 use RabbitHole\UploadPath;
@@ -23,7 +24,12 @@ class Upload
         $this->newfilename = round(microtime(true)) . '.' . end($this->temp);
     }
 
-    public function checkImage()
+    public function start()
+    {
+        $this->checkFileType();
+    }
+
+    public function checkFileType()
     {
         // Check if image file is a actual image or fake image
         if (isset($_POST["submit"])) {
@@ -36,30 +42,30 @@ class Upload
                 $uploadOk = 0;
             }
         }
-        return $this->fileExists($this->target_file);
+        return $this->checkFileExists($this->target_file);
     }
 
-    public function fileExists($target_file)
+    public function checkFileExists($target_file)
     {
         // Check if file already exists
         if (file_exists($target_file)) {
             echo "Sorry, file already exists.";
             $uploadOk = 0;
         }
-        return $this->fileSiza();
+        return $this->checkFileSize();
     }
 
-    public function fileSiza()
+    public function checkFileSize()
     {
         // Check file size
         if ($_FILES["fileToUpload"]["size"] > 500000) {
             echo "Sorry, your file is too large.";
             $uploadOk = 0;
         }
-        return $this->fileFormats($this->imageFileType);
+        return $this->checkFileFormat($this->imageFileType);
     }
 
-    public function fileFormats($imageFileType)
+    public function checkFileFormat($imageFileType)
     {
         // Allow certain file formats
         if (
@@ -69,10 +75,10 @@ class Upload
             echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
             $uploadOk = 0;
         }
-        return $this->fileAccess($this->uploadOk, $this->target_dir, $this->newfilename);
+        return $this->doUpload($this->uploadOk, $this->target_dir, $this->newfilename);
     }
 
-    public function fileAccess($uploadOk, $target_dir, $newfilename)
+    public function doUpload($uploadOk, $target_dir, $newfilename)
     {
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {

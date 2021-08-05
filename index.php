@@ -4,12 +4,11 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use RabbitHole\Upload;
 
-
 $upload = new Upload();
-$upload->checkImage();
+
+$upload->start();
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

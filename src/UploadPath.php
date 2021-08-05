@@ -48,6 +48,3 @@ class UploadPath
         return $base;
     }
 }
-
-// $uploadpath = new UploadPath();
-// $uploadpath->makeUploadPath();
